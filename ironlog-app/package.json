@@ -1,0 +1,44 @@
+{
+  "name": "ironlog-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "apk:sync": "npm run build && npx cap sync android",
+    "apk:open": "npx cap open android",
+    "apk:build-debug": "npm run build && npx cap sync android && cd android && JAVA_HOME=\"/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home\" ANDROID_HOME=\"$HOME/Library/Android/sdk\" ./gradlew assembleDebug",
+    "apk:build-release": "npm run build && npx cap sync android && cd android && ./gradlew assembleRelease bundleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/ios": "^8.5.3",
+    "@capacitor/status-bar": "^8.0.4",
+    "@supabase/supabase-js": "^2.118.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "canvas-confetti": "^1.9.4",
+    "chart.js": "^4.5.1",
+    "lucide-vue-next": "^1.0.0",
+    "pinia": "^4.1.0",
+    "tailwindcss": "^4.3.3",
+    "vue": "^3.5.42",
+    "vue-chartjs": "^5.3.4",
+    "vue-router": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.5",
+    "vue-tsc": "^3.3.11"
+  }
+}
